@@ -6,20 +6,20 @@
 We need to have docker installed previously.
 
 - ### Runing Comment and Member Services
-  ```json
+  ```
   $ docker compose build
   $ docker compose up
   ```
 
 - ### Runing Testing
-  ```json
+  ```
   $ bash < run_test.sh
   ```
 
 ## 2. ROUTES
 
 - ### Comment
-  ```json
+  ```
   Host =>  http://locahost:3005
   ```
 
@@ -30,7 +30,7 @@ We need to have docker installed previously.
   | DELETE   | /orgs/:organization/comments  | - Delete all comments associated with a particular organization |
 
 - ### Members
-  ```json
+  ```
   Host =>  http://locahost:3006
   ```
 
@@ -82,7 +82,7 @@ We need to have docker installed previously.
     ```
 
   - **Sample Request:**
-      ```json
+      ```
       POST /orgs/xendit/comments
       body: {
               "comment" : "Sample comment!"
@@ -135,7 +135,7 @@ We need to have docker installed previously.
     ```
 
   - **Sample Request:**
-      ```json
+      ```
       GET /orgs/xendit/comments
       ```
 
@@ -197,7 +197,7 @@ We need to have docker installed previously.
     ```
 
   - **Sample Request:**
-      ```json
+      ```
       DELETE /orgs/xendit/comments
       ```
 
@@ -247,7 +247,7 @@ We need to have docker installed previously.
     ```
 
   - **Sample Request:**
-      ```json
+      ```
       GET /orgs/xendit/members
       ```
 
