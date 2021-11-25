@@ -1,0 +1,22 @@
+{
+  "name": "comment-services",
+  "version": "1.0.0",
+  "description": "Comment services",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha -R spec ./**/*.spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "sequelize": "^6.12.0-alpha.1"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.3",
+    "supertest": "^6.1.6"
+  }
+}

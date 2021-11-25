@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  comment-services:
+    container_name: comment-services
+    image: sigitariprasetyo/comment-services:1.0
+    build:
+      context: .
+      dockerfile: './comment-services/Dockerfile'
+    ports:
+      - "3005:3005"
+    environment:
+      - PORT=3005
+      - PGDATABASE=test_db
+      - PGUSER=postgres
+      - PGPASSWORD=postgres
+      - PGHOST=postgres_db
+    depends_on:
+      - postgres_db
+    networks:
+      - comment_network
+  member-services:
+    container_name: member-services
+    image: sigitariprasetyo/member-services:1.0
+    build:
+      context: .
+      dockerfile: './member-services/Dockerfile'
+    ports:
+      - "3006:3006"
+    environment:
+      - PORT=3006
+      - PGDATABASE=test_db
+      - PGUSER=postgres
+      - PGPASSWORD=postgres
+      - PGHOST=postgres_db
+    depends_on:
+      - postgres_db
+    networks:
+      - comment_network
+  postgres_db:
+    container_name: postgres
+    image: "postgres:12"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=test_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - comment_network
+
+volumes:
+  pg_data: {}
+
+networks:
+  comment_network:
+    name: comment_network
